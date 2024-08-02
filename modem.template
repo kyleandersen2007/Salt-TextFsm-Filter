@@ -1,0 +1,17 @@
+Value MaxSpeedUp (\d+)
+Value MaxSpeedDown (\d+)
+Value CurrentSpeedUp (\d+)
+Value CurrentSpeedDown (\d+)
+Value SNRDown (\d+\.\d+)
+Value SNRUp (\d+\.\d+)
+Value AttnDown (\d+\.\d+)
+Value AttnUp (\d+\.\d+)
+Value PwrDown (-?\d+\.\d+)
+Value PwrUp (-?\d+\.\d+)
+
+Start
+  ^Max:\s+Upstream rate = ${MaxSpeedUp} Kbps,\s+Downstream rate = ${MaxSpeedDown} Kbps -> NoRecord
+  ^Bearer: 0,\s+Upstream rate = ${CurrentSpeedUp} Kbps,\s+Downstream rate = ${CurrentSpeedDown} Kbps -> NoRecord
+  ^SNR \(dB\):\s+${SNRDown}\s+${SNRUp} -> NoRecord
+  ^Attn\(dB\):\s+${AttnDown}\s+${AttnUp} -> NoRecord
+  ^Pwr\(dBm\):\s+${PwrDown}\s+${PwrUp} -> NoRecord
